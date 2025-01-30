@@ -44,6 +44,12 @@
         transform: translateY(0);
         opacity: 1;
       }
+
+      /* Optional center alignment for the new button containers */
+      .button-container {
+        text-align: center;
+        margin: 2rem 0 0 0;
+      }
     </style>
   </head>
   <body class="is-preload">
@@ -69,7 +75,7 @@
         </div>
         <nav>
           <ul>
-            <li><a href="#intro">About Me</a></li>
+            <li><a href="#intro">Start Here</a></li>
             <li><a href="#tool">Toolkit</a></li>
             <li><a href="#h1b">H-1B</a></li>
             <li><a href="#contact">Contact Me</a></li>
@@ -122,10 +128,15 @@
           </div>
           <!-- End Iowa Image + Visa Paragraph -->
 
-          <!-- Turn "Access the Toolkit" into a Dimension-style button -->
-          <p style="text-align:center;">
-            <a href="#tool" class="button primary">Access the Toolkit</a>
-          </p>
+          <!-- Access the Toolkit as a button (matches "Fill Out This Form") -->
+          <div class="button-container">
+            <button
+              class="default-button"
+              onclick="window.location.hash='tool';"
+            >
+              Access the Toolkit
+            </button>
+          </div>
         </article>
 
         <!-- Toolkit -->
@@ -135,7 +146,6 @@
             <img src="images/toolkit-gdrive.jpg" alt="Job Search Organizer Tool" />
           </span>
 
-          <!-- REPLACED TEXT BEGIN -->
           <p>
             The Job Search Organizer is your ultimate solution for staying on top of your job applications. Designed to help you track opportunities, application statuses, follow-ups, and deadlines with ease.
           </p>
@@ -170,7 +180,6 @@
           <p>
             Once you gain access to the toolkit, I highly recommend downloading and personalizing it to fit your needs. You can trim down sections that may not apply to your search or expand areas that require more detail. The more you tailor it to your personal job search strategy, the more effective it will be in helping you stay organized and prepared.
           </p>
-          <!-- REPLACED TEXT END -->
 
           <!-- Keep the Form Button -->
           <div class="button-container">
@@ -191,7 +200,6 @@
             </iframe>
           </div>
         </article>
-        <!-- End Toolkit Article -->
 
         <!-- H1B -->
         <article id="h1b">
@@ -216,14 +224,15 @@
             Loading…
           </iframe>
           <div style="text-align: center; margin-top: 2rem;">
-            <a
-              href="https://www.linkedin.com/in/karlietran/"
-              class="button primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Connect with me on LinkedIn
-            </a>
+            <div class="button-container">
+              <!-- LinkedIn as a button -->
+              <button
+                class="default-button"
+                onclick="window.open('https://www.linkedin.com/in/karlietran/', '_blank')"
+              >
+                Connect with me on LinkedIn
+              </button>
+            </div>
           </div>
         </article>
       </div>
@@ -248,7 +257,7 @@
             </div>
             <div class="testimonial">
               <p>
-                "Karlie, I was thinking about this and figured I would also share this with you! Thank you so much for your willingness to share your job search resources, you helped me prepare for my job search in so many ways that I did not expect. You really made this process so much more approachable, helped me get started (which was the hardest part) and absolutely changed the way I went about my job search. Thank you so much. I'm at a place now where I'm choosing between offers and will have a job secured by early next week!  I credit the ways I went about my search a lot to you, thank you so much."
+                "Karlie, I was thinking about this and figured I would also share this with you! Thank you so much for your willingness to share your job search resources, you helped me prepare for my job search in so many ways that I did not expect. You really made this process so much more approachable, helped me get started (which was the hardest part) and absolutely changed the way I went about my job search. Thank you so much. I'm at a place now where I'm choosing between offers and will have a job secured by early next week! I credit the ways I went about my search a lot to you, thank you so much."
                 <br />&ndash; <strong>I. Y.</strong>
               </p>
             </div>
