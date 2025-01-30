@@ -1,446 +1,328 @@
 <!DOCTYPE HTML>
 <!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    Dimension by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Dimension by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>Dimension by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <!-- Link to your external CSS -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Fallback for non-JS browsers -->
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
-						<div class="inner">
-							<h1 style="font-size: 2.5em;">WELCOME TO JOB SEARCH TOOLKIT</h1>
-							<p style="font-size: 1.2em;">Your ultimate tool to streamline and organize your job search journey.<br />
-							I'm excited to share this free resource to help you stay on track and achieve your career goals.</p>
-							<p style="font-size: 1.2em;">Created and shared with care by <strong>Karlie Tran</strong>.</p>
-							<p style="font-size: 1.2em; margin-top: 1em;">Specially designed to support all job seekers, including international staff navigating H-1B and visa challenges.</p>
-						</div>																
-						<nav>
-							<ul>
-								<li><a href="#intro">About Me</a></li>
-								<li><a href="#tool">Toolkit</a></li>
-								<li><a href="#h1b">H-1B</a></li>
-								<li><a href="#contact">Contact Me</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
-					</header>
+    <style>
+      /* 1) Round the corners on testimonial container */
+      .testimonial-container {
+        border-radius: 8px;
+      }
 
-				<!-- Main -->
-					<div id="main">
+      /* 2) Replicate the Dimension fade-in effect for #testimonials */
+      #testimonials {
+        /* Start slightly translated and invisible, like Dimension's articles */
+        -moz-transform: translateY(0.25rem);
+        -webkit-transform: translateY(0.25rem);
+        -ms-transform: translateY(0.25rem);
+        transform: translateY(0.25rem);
 
-						<!-- Intro -->
-						<article id="intro">
-							<h2 class="major">Intro</h2>
-							<span class="image main">
-								<img src="images/karlie-portrait.png" alt="Karlie Tran" />
-							</span>
-							<p>
-								Hi, my name is Karlie Tran, and I am originally from Hanoi, Vietnam. I came to the United States when I was 16 years old and have been navigating life as an international student and professional ever since. After 7.5 years as an international student, I transitioned to working under an H-1B visa starting in 2022/2023.
-							</p>
-							<div class="inline-content">
-								<p>
-									I began my academic journey at the University at Buffalo, where I pursued a Bachelor of Science in Business Administration with a concentration in Finance and Data Management. However, the onset of the COVID-19 pandemic in 2020 led me to pivot to a new path—pursuing a Master of Education in Higher Education and Student Affairs. I was an Assistant Hall Director in Campus Living at the University at Buffalo for two years.
-								</p>
-								<div class="cornell-image">
-									<img src="images/karlie-cornell.png" alt="Karlie at Cornell" />
-									<small> My summer 2021 internship at Cornell University as the Residence Director for the Pre-Collegiate Scholar Program (formerly PSP).</small>
-								</div>
-							</div>
-							<p>
-								Currently, I serve as a Hall Coordinator at the University of Iowa. This position, however, was not an easy milestone to achieve. During my first professional job search, I applied to over 60 positions and participated in more than 50 interviews. This challenging process inspired me to create a Job Search Toolkit—a resource to help me track and organize my applications and interviews efficiently.
-							</p>
-							<p>
-								As an international candidate, I faced unique obstacles, particularly around visa sponsorship. Often, rejections were not due to my qualifications but the complexities of visa requirements. I understand firsthand the challenges of conducting a nationwide job search, especially when navigating non-negotiable needs like sponsorship.
-							</p>	
-							</p>
+        -moz-transition: opacity 0.325s ease-in-out, -moz-transform 0.325s ease-in-out;
+        -webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
+        -ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
+        transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
 
-							<p><a href="#tool">Access the Toolkit</a></p>
-						</article>
-																
+        opacity: 0; /* Invisible by default */
+      }
+      #testimonials.active {
+        /* Fade in fully and remove the slight translate */
+        -moz-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
 
-						<!-- Work -->
-						<article id="tool">
-							<h2 class="major">Job Search Organizer Toolkit</h2>
-							<span class="image main"><img src="images/toolkit-presentation.png" alt="Job Search Organizer Tool" /></span>
-							
-							<!-- Description of the tool -->
-							<p>The Job Search Organizer is your ultimate solution for staying on top of your job applications. Designed to help you track opportunities, application statuses, follow-ups, and deadlines with ease.</p>
-							<p>This toolkit has been showcased at multiple professional conferences, including regionally at UMR-ACUHO conference in North Dakota 2022 and nationally at ACUHO-I Conference in Oregon 2023.</p>
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-							<!-- Button to Show Form -->
-							<div class="button-container">
-								<button id="show-form-button" class="default-button">Fill Out This Form</button>
-							</div>
+      <!-- Header -->
+      <header id="header">
+        <div class="logo">
+          <span class="icon fa-gem"></span>
+        </div>
+        <div class="inner">
+          <h1 style="font-size: 2.5em;">WELCOME TO JOB SEARCH TOOLKIT</h1>
+          <p style="font-size: 1.2em;">
+            Your ultimate tool to streamline and organize your job search journey.<br />
+            I'm excited to share this free resource to help you stay on track and achieve your career goals.
+          </p>
+          <p style="font-size: 1.2em;">Created and shared with care by <strong>Karlie Tran</strong>.</p>
+          <p style="font-size: 1.2em; margin-top: 1em;">
+            Specially designed to support all job seekers, including international staff navigating H-1B and visa challenges.
+          </p>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#intro">About Me</a></li>
+            <li><a href="#tool">Toolkit</a></li>
+            <li><a href="#h1b">H-1B</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+          </ul>
+        </nav>
+      </header>
 
-							<!-- Hidden Google Form -->
-							<div id="google-form-container" style="display: none; margin-top: 20px;">
-								<iframe 
-									src="https://docs.google.com/forms/d/e/1FAIpQLSfl6UpiR2VIT6hvgLazsSn-32gHF9GdsU1P9X2RfiVOsnMrzg/viewform?embedded=true" 
-									width="100%" 
-									height="800" 
-									frameborder="0" 
-									marginheight="0" 
-									marginwidth="0">
-									Loading…
-								</iframe>
-							</div>
+      <!-- Main -->
+      <div id="main">
 
-							<!-- Step-by-step instructions -->
-							<h3>How to Use the Job Search Organizer</h3>
-							<ol>
-								<li><strong>Download the Tool:</strong> Fill out the form and download the spreadsheet.</li>
-								<li><strong>Set Up Your Tracker:</strong> Open the spreadsheet and input your personal details, such as your job search goals and target positions.</li>
-								<li><strong>Log Your Applications:</strong> Add job titles, company names, application dates, and deadlines to track your progress.</li>
-								<li><strong>Track Follow-Ups:</strong> Use the follow-up tracker to ensure timely communication with recruiters and hiring managers.</li>
-								<li><strong>Review Your Progress:</strong> Regularly update the tracker to stay on top of your job search process and assess your application trends.</li>
-							</ol>
+        <!-- Intro -->
+        <article id="intro">
+          <h2 class="major">About Me</h2>
+          <span class="image main">
+            <img src="images/karlie-portrait.png" alt="Karlie Tran" />
+          </span>
 
-							<p>If you have any questions or need assistance, feel free to reach out via the <a href="#contact">Contact Me</a> section.</p>
-						</article>
-						
+          <p>
+            Hi, my name is Karlie Tran, and I am originally from Hanoi, Vietnam. I came to the United States when I was 16 years old and have been navigating life as an international student and professional ever since. After 7.5 years as an international student, I transitioned to working under an H-1B visa starting in 2022/2023.
+          </p>
 
-						<!-- About -->
-							<article id="h1b">
-								<h2 class="major">Navigate H-1B</h2>
-								<p style="text-align: center; font-size: 1.5rem; font-weight: bold; color: #ccc;">
-									Coming Soon
-								</p>
-							</article>
+          <div class="inline-content">
+            <p>
+              I began my academic journey at the University at Buffalo, where I pursued a Bachelor of Science in Business Administration with a concentration in Finance and Data Management. However, the onset of the COVID-19 pandemic in 2020 led me to pivot to a new path—pursuing a Master of Education in Higher Education and Student Affairs. I was an Assistant Hall Director in Campus Living at the University at Buffalo for two years.
+            </p>
+            <div class="cornell-image">
+              <img src="images/karlie-cornell.png" alt="Karlie at Cornell" />
+              <small>
+                My summer 2021 internship at Cornell University as the Residence Director for the Pre-Collegiate Scholar Program (formerly PSP).
+              </small>
+            </div>
+          </div>
 
+          <p>
+            Currently, I serve as a Hall Coordinator at the University of Iowa. This position, however, was not an easy milestone to achieve. During my first professional job search, I applied to over 60 positions and participated in more than 50 interviews. This challenging process inspired me to create a Job Search Toolkit—a resource to help me track and organize my applications and interviews efficiently.
+          </p>
 
-						<!-- Contact -->
-						<article id="contact">
-							<h2 class="major">Contact</h2>
-							<p>If you have any questions or inquiries, use the form below:</p>
-							<iframe 
-								src="https://docs.google.com/forms/d/e/1FAIpQLSdlMqTMBIU7NzNrW3up2PycKpN5KKyOiV1XAEk05KP1TUUB0w/viewform?embedded=true" 
-								width="100%" 
-								height="800" 
-								frameborder="0" 
-								marginheight="0" 
-								marginwidth="0">Loading…
-							</iframe>
-							<div style="text-align: center; margin-top: 2rem;">
-								<a href="https://www.linkedin.com/in/karlietran/" 
-								   class="button primary" 
-								   target="_blank" 
-								   rel="noopener noreferrer">
-									Connect with me on LinkedIn
-								</a>
-							</div>
-						</article>						
+          <!-- Iowa Image + Visa Paragraph -->
+          <div class="inline-content visa-section">
+            <div class="iowa-image">
+              <img
+                src="images/toolkit-presentation.png"
+                alt="Karlie Presenting the toolkit"
+              />
+              <small>Karlie Presenting the toolkit</small>
+            </div>
+            <p>
+              As an international candidate, I faced unique obstacles, particularly around visa sponsorship. Often, rejections were not due to my qualifications but the complexities of visa requirements. I understand firsthand the challenges of conducting a nationwide job search, especially when navigating non-negotiable needs like sponsorship.
+            </p>
+          </div>
+          <!-- End Iowa Image + Visa Paragraph -->
 
+          <p><a href="#tool">Access the Toolkit</a></p>
+        </article>
 
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
+        <!-- Toolkit -->
+        <article id="tool">
+          <h2 class="major">Job Search Organizer Toolkit</h2>
+          <span class="image main">
+            <img src="images/toolkit-presentation.png" alt="Job Search Organizer Tool" />
+          </span>
 
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
+          <!-- Description of the tool -->
+          <p>
+            The Job Search Organizer is your ultimate solution for staying on top of your job applications. Designed to help you track opportunities, application statuses, follow-ups, and deadlines with ease.
+          </p>
+          <p>
+            This toolkit has been showcased at multiple professional conferences, including regionally at UMR-ACUHO conference in North Dakota 2022 and nationally at ACUHO-I Conference in Oregon 2023.
+          </p>
 
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
+          <!-- Button to Show Form -->
+          <div class="button-container">
+            <button id="show-form-button" class="default-button">Fill Out This Form</button>
+          </div>
 
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
+          <!-- Hidden Google Form -->
+          <div id="google-form-container" style="display: none; margin-top: 20px;">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSfl6UpiR2VIT6hvgLazsSn-32gHF9GdsU1P9X2RfiVOsnMrzg/viewform?embedded=true"
+              width="100%"
+              height="800"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+            >
+              Loading…
+            </iframe>
+          </div>
 
-								<section>
-									<h3 class="major">Lists</h3>
+          <!-- Step-by-step instructions -->
+          <h3>How to Use the Job Search Organizer</h3>
+          <ol>
+            <li><strong>Download the Tool:</strong> Fill out the form and download the spreadsheet.</li>
+            <li><strong>Set Up Your Tracker:</strong> Open the spreadsheet and input your personal details, such as your job search goals and target positions.</li>
+            <li><strong>Log Your Applications:</strong> Add job titles, company names, application dates, and deadlines to track your progress.</li>
+            <li><strong>Track Follow-Ups:</strong> Use the follow-up tracker to ensure timely communication with recruiters and hiring managers.</li>
+            <li><strong>Review Your Progress:</strong> Regularly update the tracker to stay on top of your job search process and assess your application trends.</li>
+          </ol>
 
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
+          <p>
+            If you have any questions or need assistance, feel free to reach out via the <a href="#contact">Contact Me</a> section.
+          </p>
+        </article>
 
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
+        <!-- H1B -->
+        <article id="h1b">
+          <h2 class="major">Navigate H-1B</h2>
+          <p style="text-align: center; font-size: 1.5rem; font-weight: bold; color: #ccc;">
+            Coming Soon
+          </p>
+        </article>
 
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
+        <!-- Contact -->
+        <article id="contact">
+          <h2 class="major">Contact</h2>
+          <p>If you have any questions or inquiries, use the form below:</p>
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdlMqTMBIU7NzNrW3up2PycKpN5KKyOiV1XAEk05KP1TUUB0w/viewform?embedded=true"
+            width="100%"
+            height="800"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+          >
+            Loading…
+          </iframe>
+          <div style="text-align: center; margin-top: 2rem;">
+            <a
+              href="https://www.linkedin.com/in/karlietran/"
+              class="button primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Connect with me on LinkedIn
+            </a>
+          </div>
+        </article>
+      </div>
 
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
+      <!-- TESTIMONIALS MOVED OUTSIDE #MAIN -->
+      <section id="testimonials">
+        <h2 class="major">What People Are Saying</h2>
+        <div class="testimonial-gallery">
+          <button class="nav prev" onclick="prevTestimonial()">&#10094;</button>
+          <div class="testimonial-container">
+            <div class="testimonial active">
+              <p>
+                "This tool was a game-changer for my job search!
+                Highly recommend it to anyone looking to stay organized."
+                <br />&ndash; <strong>Sarah M.</strong>
+              </p>
+            </div>
+            <div class="testimonial">
+              <p>
+                "As an international student, the Job Search Organizer
+                simplified everything. It's a must-have!"
+                <br />&ndash; <strong>Raj P.</strong>
+              </p>
+            </div>
+            <div class="testimonial">
+              <p>
+                "Thanks to this toolkit, I landed my dream job!
+                The step-by-step structure is genius."
+                <br />&ndash; <strong>Emily R.</strong>
+              </p>
+            </div>
+            <div class="testimonial">
+              <p>
+                "The tool is not just a tracker, it's a lifesaver
+                for anyone navigating the H-1B process."
+                <br />&ndash; <strong>Chen W.</strong>
+              </p>
+            </div>
+          </div>
+          <button class="nav next" onclick="nextTestimonial()">&#10095;</button>
+        </div>
+      </section>
 
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
+      <!-- Footer -->
+      <footer id="footer">
+        <p class="copyright">
+          &copy; Karlie Tran. Design: <a href="https://html5up.net">HTML5 UP</a>.
+        </p>
+      </footer>
+    </div>
 
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</section>
+    <!-- BG -->
+    <div id="bg"></div>
 
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
+    <!-- Scripts -->
+    <!-- Include jQuery (Dimension uses it) -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <!-- Main JS for page transitions/testimonials -->
+    <script src="assets/js/main.js"></script>
 
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
+    <!-- Show/Hide Google Form Script -->
+    <script>
+      // Toggle the embedded Google form on button click
+      document.getElementById('show-form-button').addEventListener('click', function () {
+        const formContainer = document.getElementById('google-form-container');
+        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+          formContainer.style.display = 'block';
+        } else {
+          formContainer.style.display = 'none';
+        }
+      });
 
-							</article>
+      // Testimonial cycling
+      const testimonials = document.querySelectorAll('.testimonial');
+      let currentTestimonial = 0;
 
-					</div>
+      function showTestimonial(index) {
+        testimonials.forEach((t, i) => {
+          t.classList.remove('active');
+          if (i === index) t.classList.add('active');
+        });
+      }
 
-					<section id="testimonials" style="display: none;">
-						<h2 class="major">What People Are Saying</h2>
-						<div class="testimonial-gallery">
-							<button class="nav prev" onclick="prevTestimonial()">&#10094;</button>
-							<div class="testimonial-container">
-								<div class="testimonial active">
-									<p>"This tool was a game-changer for my job search! Highly recommend it to anyone looking to stay organized." - <strong>Sarah M.</strong></p>
-								</div>
-								<div class="testimonial">
-									<p>"As an international student, the Job Search Organizer simplified everything. It's a must-have!" - <strong>Raj P.</strong></p>
-								</div>
-								<div class="testimonial">
-									<p>"Thanks to this toolkit, I landed my dream job! The step-by-step structure is genius." - <strong>Emily R.</strong></p>
-								</div>
-								<div class="testimonial">
-									<p>"The tool is not just a tracker, it's a lifesaver for anyone navigating the H-1B process." - <strong>Chen W.</strong></p>
-								</div>
-							</div>
-							<button class="nav next" onclick="nextTestimonial()">&#10095;</button>
-						</div>
-					</section>
-					
-					
+      function nextTestimonial() {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+      }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Karlie Tran. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</footer>
+      function prevTestimonial() {
+        currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentTestimonial);
+      }
+    </script>
 
-			</div>
+    <!-- Only Show Testimonials on "Main" / No Hash, plus fade-in via 'active' class -->
+    <script>
+      const testimonialSection = document.getElementById('testimonials');
 
-		<!-- BG -->
-			<div id="bg"></div>
+      function toggleTestimonials() {
+        // If there's no hash or just '#', show them
+        if (!location.hash || location.hash === '#') {
+          testimonialSection.style.display = 'block';
+          testimonialSection.classList.add('active');
+        } else {
+          // Hide them
+          testimonialSection.classList.remove('active');
+          testimonialSection.style.display = 'none';
+        }
+      }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script>
-				document.getElementById('show-form-button').addEventListener('click', function () {
-					const formContainer = document.getElementById('google-form-container');
-					if (formContainer.style.display === 'none' || formContainer.style.display === '') {
-						formContainer.style.display = 'block'; // Show the form
-					} else {
-						formContainer.style.display = 'none'; // Hide the form
-					}
-				});
-			</script>
-			
+      // Initial check on page load
+      toggleTestimonials();
 
-	</body>
+      // Re-check on every hash change
+      window.addEventListener('hashchange', toggleTestimonials);
+    </script>
+
+  </body>
 </html>

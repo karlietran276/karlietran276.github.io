@@ -51,7 +51,7 @@
     var $nav = $header.children('nav'),
         $nav_li = $nav.find('li');
 
-    // Add "middle" alignment classes if we're dealing with an even number of items.
+    // Add "middle" alignment classes if dealing with an even number of items.
     if ($nav_li.length % 2 == 0) {
         $nav.addClass('use-middle');
         $nav_li.eq($nav_li.length / 2).addClass('is-middle');
@@ -88,10 +88,13 @@
         // Lock.
         locked = true;
 
+        // Already visible?
         if ($body.hasClass('is-article-visible')) {
+            // Deactivate current article
             var $currentArticle = $main_articles.filter('.active');
             $currentArticle.removeClass('active');
 
+            // Show article
             setTimeout(function () {
                 $currentArticle.hide();
                 $article.show();
@@ -104,6 +107,7 @@
                 }, 25);
             }, delay);
         } else {
+            // Otherwise, activate article
             $body.addClass('is-article-visible');
             setTimeout(function () {
                 $header.hide();
@@ -123,11 +127,15 @@
 
     $main._hide = function (addState) {
         var $article = $main_articles.filter('.active');
+
+        // Already hidden or no article visible? Bail.
         if (!$body.hasClass('is-article-visible')) return;
 
+        // Add state?
         if (typeof addState != 'undefined' && addState === true)
             history.pushState(null, null, '#');
 
+        // Handle lock
         if (locked) {
             $body.addClass('is-switching');
             $article.removeClass('active');
@@ -144,12 +152,16 @@
 
         locked = true;
 
+        // Deactivate article
         $article.removeClass('active');
+
         setTimeout(function () {
+            // Hide article, show main stuff
             $article.hide();
             $main.hide();
             $footer.show();
             $header.show();
+
             setTimeout(function () {
                 $body.removeClass('is-article-visible');
                 $window.scrollTop(0).triggerHandler('resize.flexbox-fix');
@@ -164,12 +176,14 @@
     $main_articles.each(function () {
         var $this = $(this);
 
+        // Close link
         $('<div class="close">Close</div>')
             .appendTo($this)
             .on('click', function () {
                 location.hash = '';
             });
 
+        // Prevent clicks from inside article from bubbling.
         $this.on('click', function (event) {
             event.stopPropagation();
         });
@@ -177,12 +191,14 @@
 
     // Events.
     $body.on('click', function (event) {
+        // If an article is visible, hide it.
         if ($body.hasClass('is-article-visible')) $main._hide(true);
     });
 
     $window.on('keyup', function (event) {
         switch (event.keyCode) {
             case 27:
+                // Escape
                 if ($body.hasClass('is-article-visible')) $main._hide(true);
                 break;
             default:
@@ -191,17 +207,21 @@
     });
 
     $window.on('hashchange', function (event) {
+        // Empty hash?
         if (location.hash == '' || location.hash == '#') {
             event.preventDefault();
             event.stopPropagation();
             $main._hide();
-        } else if ($main_articles.filter(location.hash).length > 0) {
+        }
+        // Otherwise, show article if it exists
+        else if ($main_articles.filter(location.hash).length > 0) {
             event.preventDefault();
             event.stopPropagation();
             $main._show(location.hash.substr(1));
         }
     });
 
+    // Scroll restoration
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     else {
         var oldScrollPos = 0,
@@ -222,22 +242,25 @@
     $main.hide();
     $main_articles.hide();
 
+    // If there's a hash, show the article on load.
     if (location.hash != '' && location.hash != '#')
         $window.on('load', function () {
             $main._show(location.hash.substr(1), true);
         });
 
-    // Testimonial Section Handling
+    // OPTIONAL: Toggle testimonials based on hash (if desired).
     const testimonialSection = document.getElementById('testimonials');
-
     function toggleTestimonials() {
+        if (!testimonialSection) return;
+
+        // For example: only show if user is on "index" or no hash
         if (location.hash === '' || location.hash === '#index') {
-            if (testimonialSection) testimonialSection.style.display = 'block';
+            testimonialSection.style.display = 'block';
         } else {
-            if (testimonialSection) testimonialSection.style.display = 'none';
+            testimonialSection.style.display = 'none';
         }
     }
-
     toggleTestimonials();
     window.addEventListener('hashchange', toggleTestimonials);
+
 })(jQuery);
