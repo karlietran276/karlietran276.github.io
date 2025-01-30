@@ -23,7 +23,7 @@
 
       /* 2) Replicate the Dimension fade-in effect for #testimonials */
       #testimonials {
-        /* Start slightly translated and invisible, like Dimension's articles */
+        /* Start slightly translated and invisible */
         -moz-transform: translateY(0.25rem);
         -webkit-transform: translateY(0.25rem);
         -ms-transform: translateY(0.25rem);
@@ -371,27 +371,31 @@
       }
     </script>
 
-    <!-- Only Show Testimonials on "Main" / No Hash, plus fade-in via 'active' class -->
+    <!-- MutationObserver approach: show/hide testimonials if body.has/is-article-visible -->
     <script>
       const testimonialSection = document.getElementById('testimonials');
 
-      function toggleTestimonials() {
-        // If there's no hash or just '#', show them
-        if (!location.hash || location.hash === '#') {
+      function updateTestimonials() {
+        // If body has is-article-visible => hide testimonials
+        if (document.body.classList.contains('is-article-visible')) {
+          testimonialSection.style.display = 'none';
+          testimonialSection.classList.remove('active');
+        } else {
+          // Otherwise => show them
           testimonialSection.style.display = 'block';
           testimonialSection.classList.add('active');
-        } else {
-          // Hide them
-          testimonialSection.classList.remove('active');
-          testimonialSection.style.display = 'none';
         }
       }
 
-      // Initial check on page load
-      toggleTestimonials();
+      // Set up a MutationObserver to watch for changes to the body's class
+      const observer = new MutationObserver(updateTestimonials);
+      observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
 
-      // Re-check on every hash change
-      window.addEventListener('hashchange', toggleTestimonials);
+      // Run once on page load
+      updateTestimonials();
     </script>
 
   </body>
