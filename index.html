@@ -1,420 +1,1062 @@
-<!DOCTYPE HTML>
-<!--
-    Dimension by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    <title>Job search toolkit by Karlie Tran</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Link to your external CSS -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!-- Fallback for non-JS browsers -->
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <!-- SEO Meta Tags -->
+  <title>Job Search Toolkit by Karlie Tran | Free Career Organization Resource</title>
+  <meta name="description" content="A free job search toolkit created by Karlie Tran — Hall Coordinator at the University of Iowa. Includes resume templates, cover letter guides, interview prep, and H-1B visa tips for international job seekers." />
+  <meta name="keywords" content="job search toolkit, free career resources, H-1B visa sponsorship, international job seeker, resume template, cover letter template, job application tracker, Karlie Tran" />
+  <meta name="author" content="Karlie Tran" />
+  <link rel="canonical" href="https://karlietran.com/" />
 
-    <style>
-      /* 1) Round the corners on testimonial container */
-      .testimonial-container {
-        border-radius: 8px;
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://karlietran.com/" />
+  <meta property="og:title" content="Free Job Search Toolkit by Karlie Tran" />
+  <meta property="og:description" content="Stay organized, land your next role. A free toolkit with resume templates, interview prep, and H-1B tips — built from 60+ applications and 50+ interviews." />
+  <meta property="og:image" content="images/karlie-portrait.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Karlie Tran",
+    "jobTitle": "Hall Coordinator",
+    "worksFor": { "@type": "Organization", "name": "University of Iowa" },
+    "url": "https://karlietran.com/",
+    "sameAs": ["https://www.linkedin.com/in/karlietran/"]
+  }
+  </script>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       DESIGN TOKENS
+    ============================================= */
+    :root {
+      --cream:     #faf7f2;
+      --warm-white:#fffdf9;
+      --sand:      #ede8df;
+      --taupe:     #c9bfb0;
+      --sienna:    #b5764a;
+      --sienna-dk: #8f5735;
+      --bark:      #3d2b1f;
+      --ink:       #2a1f17;
+      --mist:      #f2ede6;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+
+      --radius: 4px;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --max-w: 820px;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--sienna); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--bark);
+    }
+    h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); letter-spacing: -0.01em; }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 300; }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    p { margin-bottom: 1.25rem; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-bottom: 1.25rem;
+    }
+    ul li { margin-bottom: 0.5rem; }
+
+    strong { font-weight: 500; color: var(--bark); }
+
+    /* =============================================
+       LAYOUT UTILITIES
+    ============================================= */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .container--wide {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 6rem 0;
+    }
+    .section--alt {
+      background: var(--mist);
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--sienna);
+      margin: 1.5rem 0 2rem;
+    }
+
+    /* =============================================
+       NAV
+    ============================================= */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand);
+      transition: box-shadow var(--transition);
+    }
+    #nav.scrolled {
+      box-shadow: 0 2px 24px rgba(61,43,31,0.08);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--bark);
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--sienna); text-decoration: none; }
+
+    .nav-cta {
+      background: var(--sienna);
+      color: var(--warm-white) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+      transition: background var(--transition) !important;
+    }
+    .nav-cta:hover { background: var(--sienna-dk) !important; color: var(--warm-white) !important; }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--ink);
+      transition: var(--transition);
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 120px 2rem 80px;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(181,118,74,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 10% 80%, rgba(201,191,176,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: var(--max-w);
+      width: 100%;
+      text-align: center;
+    }
+    .hero-kicker {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s forwards;
+    }
+    .hero-headline {
+      opacity: 0;
+      animation: fadeUp 0.8s 0.25s forwards;
+      margin-bottom: 1.5rem;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--sienna);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: #6b5a4e;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.55s forwards;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      animation: fadeUp 1s 1.2s both;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: var(--taupe);
+      animation: scrollLine 2s 1.5s infinite;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+      text-decoration: none !important;
+    }
+    .btn-primary {
+      background: var(--sienna);
+      color: var(--warm-white);
+    }
+    .btn-primary:hover {
+      background: var(--sienna-dk);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(143,87,53,0.25);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--bark);
+      border: 1px solid var(--taupe);
+    }
+    .btn-outline:hover {
+      border-color: var(--sienna);
+      color: var(--sienna);
+      transform: translateY(-1px);
+    }
+    .btn-center { text-align: center; margin-top: 2.5rem; }
+
+    /* =============================================
+       STATS STRIP
+    ============================================= */
+    .stats-strip {
+      background: var(--bark);
+      color: var(--cream);
+      padding: 3rem 2rem;
+    }
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--sienna);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    /* =============================================
+       ABOUT SECTION
+    ============================================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-image-wrap {
+      position: sticky;
+      top: 90px;
+    }
+    .about-portrait {
+      width: 100%;
+      border-radius: var(--radius);
+      filter: saturate(0.9) contrast(1.02);
+    }
+    .about-img-caption {
+      font-size: 0.72rem;
+      color: var(--taupe);
+      margin-top: 0.75rem;
+      letter-spacing: 0.05em;
+      font-style: italic;
+    }
+    .cornell-img {
+      margin-top: 1.5rem;
+      width: 100%;
+      border-radius: var(--radius);
+      opacity: 0.85;
+    }
+
+    /* =============================================
+       TOOLKIT SECTION
+    ============================================= */
+    .toolkit-screenshot {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--sand);
+      box-shadow: 0 8px 40px rgba(61,43,31,0.1);
+      margin-bottom: 0.75rem;
+    }
+    .toolkit-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .toolkit-item {
+      padding: 1.5rem;
+      background: var(--warm-white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .toolkit-item:hover {
+      box-shadow: 0 6px 24px rgba(61,43,31,0.09);
+      transform: translateY(-2px);
+    }
+    .toolkit-item-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--bark);
+      margin-bottom: 0.4rem;
+    }
+    .toolkit-item p {
+      font-size: 0.88rem;
+      color: #6b5a4e;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Video */
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 40px rgba(61,43,31,0.12);
+      margin: 2.5rem 0;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* Google Form toggle */
+    .form-reveal {
+      margin-top: 2.5rem;
+    }
+    .form-reveal iframe {
+      width: 100%;
+      height: 760px;
+      border: none;
+      border-radius: var(--radius);
+      margin-top: 1.5rem;
+      display: none;
+    }
+    .form-reveal iframe.open { display: block; }
+
+    /* =============================================
+       H1B SECTION
+    ============================================= */
+    .h1b-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .h1b-card {
+      padding: 1.75rem;
+      border-left: 3px solid var(--sienna);
+      background: var(--warm-white);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .h1b-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .h1b-card p {
+      font-size: 0.88rem;
+      color: #6b5a4e;
+      margin: 0;
+    }
+
+    .tip-box {
+      background: rgba(181,118,74,0.08);
+      border: 1px solid rgba(181,118,74,0.2);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+    .tip-box p { font-size: 0.92rem; margin: 0; }
+
+    /* =============================================
+       TESTIMONIALS
+    ============================================= */
+    #testimonials {
+      background: var(--bark);
+      padding: 6rem 2rem;
+      color: var(--cream);
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .testimonials-header .eyebrow { color: var(--taupe); }
+    .testimonials-header h2 { color: var(--cream); }
+
+    .testimonial-track {
+      position: relative;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      display: none;
+      text-align: center;
+      animation: fadeIn 0.4s ease;
+    }
+    .testimonial-card.active { display: block; }
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.65;
+      color: #e8ddd4;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-quote::before { content: '\201C'; }
+    .testimonial-quote::after  { content: '\201D'; }
+    .testimonial-author {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    .testimonial-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .t-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,191,176,0.3);
+      background: transparent;
+      color: var(--taupe);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition);
+    }
+    .t-btn:hover {
+      border-color: var(--sienna);
+      color: var(--sienna);
+    }
+    .t-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .t-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: rgba(201,191,176,0.3);
+      transition: background var(--transition);
+      cursor: pointer;
+    }
+    .t-dot.active { background: var(--sienna); }
+
+    /* =============================================
+       CONTACT SECTION
+    ============================================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-info h2 { margin-bottom: 0.5rem; }
+    .contact-info p { color: #6b5a4e; }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      margin-top: 1.5rem;
+    }
+    .contact-link::after {
+      content: '→';
+      transition: transform var(--transition);
+    }
+    .contact-link:hover::after { transform: translateX(4px); }
+    .contact-link:hover { text-decoration: none; }
+
+    .contact-form iframe {
+      width: 100%;
+      height: 720px;
+      border: none;
+      border-radius: var(--radius);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--ink);
+      color: var(--taupe);
+      text-align: center;
+      padding: 2.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+    }
+    footer a { color: var(--taupe); }
+    footer a:hover { color: var(--cream); }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes scrollLine {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: var(--cream);
+        border-bottom: 1px solid var(--sand);
+        padding: 1.5rem 2rem;
+        gap: 1.25rem;
       }
+      .nav-toggle { display: flex; }
+      .nav-cta { display: none; }
 
-      /* 2) Replicate the Dimension fade-in effect for #testimonials */
-      #testimonials {
-        /* Start slightly translated and invisible */
-        -moz-transform: translateY(0.25rem);
-        -webkit-transform: translateY(0.25rem);
-        -ms-transform: translateY(0.25rem);
-        transform: translateY(0.25rem);
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-image-wrap { position: static; }
+      .toolkit-items { grid-template-columns: 1fr; }
+      .h1b-cards { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .stats-inner { grid-template-columns: 1fr; gap: 1.5rem; }
 
-        -moz-transition: opacity 0.325s ease-in-out, -moz-transform 0.325s ease-in-out;
-        -webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
-        -ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
-        transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
+      .section { padding: 4rem 0; }
+    }
 
-        opacity: 0; /* Invisible by default */
-      }
-      #testimonials.active {
-        /* Fade in fully and remove the slight translate */
-        -moz-transform: translateY(0);
-        -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-        transform: translateY(0);
-        opacity: 1;
-      }
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
 
-      /* Optional center alignment for button containers */
-      .button-container {
-        text-align: center;
-        margin: 2rem 0 0 0;
-      }
-    </style>
-  </head>
-  <body class="is-preload">
+  <!-- ========================
+       NAVIGATION
+  ========================= -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Karlie Tran home">Karlie Tran</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#toolkit">Toolkit</a></li>
+        <li><a href="#h1b">H-1B Tips</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#toolkit" class="nav-cta">Get Free Toolkit</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-    <!-- Wrapper -->
-    <div id="wrapper">
+  <!-- ========================
+       HERO
+  ========================= -->
+  <section id="hero" aria-label="Introduction">
+    <div class="hero-inner">
+      <span class="hero-kicker">Free Resource for Job Seekers</span>
+      <h1 class="hero-headline">Your job search,<br><em>finally organized.</em></h1>
+      <p class="hero-sub">A free toolkit built from 60+ applications and 50+ interviews — designed for every job seeker, including international candidates navigating visa sponsorship.</p>
+      <div class="hero-actions">
+        <a href="#toolkit" class="btn btn-primary">Get the Free Toolkit</a>
+        <a href="#about" class="btn btn-outline">Meet Karlie</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
-      <!-- Header -->
-      <header id="header">
-        <div class="logo">
-          <span class="icon fa-gem"></span>
+  <!-- ========================
+       STATS STRIP
+  ========================= -->
+  <div class="stats-strip" aria-label="Key numbers">
+    <div class="stats-inner">
+      <div class="reveal">
+        <div class="stat-num">60+</div>
+        <div class="stat-label">Positions Applied</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Interviews Completed</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num">Free</div>
+        <div class="stat-label">Always & Forever</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================
+       ABOUT
+  ========================= -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap reveal">
+          <img src="images/karlie-portrait.png" alt="Karlie Tran, Hall Coordinator at the University of Iowa" class="about-portrait" loading="lazy" />
+          <p class="about-img-caption">Karlie Tran — Hall Coordinator, University of Iowa</p>
+          <img src="images/karlie-cornell.png" alt="Karlie at her 2021 Cornell University internship as Residence Director" class="cornell-img" loading="lazy" />
+          <p class="about-img-caption">Summer 2021 internship at Cornell University — Residence Director for the Pre-Collegiate Scholar Program.</p>
         </div>
-        <div class="inner">
-          <h1 style="font-size: 2.5em;">WELCOME TO JOB SEARCH TOOLKIT</h1>
-          <p style="font-size: 1.2em;">
-            Your ultimate tool to streamline and organize your job search journey.<br />
-            I'm excited to share this free resource to help you stay on track and achieve your career goals.
-          </p>
-          <p style="font-size: 1.2em;">Created and shared with care by <strong>Karlie Tran</strong>.</p>
-          <p style="font-size: 1.2em; margin-top: 1em;">
-            Specially designed to support all job seekers, including international staff navigating H-1B and visa challenges.
-          </p>
+        <div class="about-content">
+          <span class="eyebrow reveal">About</span>
+          <h2 class="reveal">Hi, I'm Karlie.</h2>
+          <div class="divider reveal"></div>
+          <div class="reveal">
+            <p>Originally from Hanoi, Vietnam, I came to the United States at 16 and have navigated life as an international student and professional for over a decade. I transitioned to working under an H-1B visa in 2022/2023.</p>
+            <p>I began at the University at Buffalo, earning a B.S. in Business Administration with a concentration in Finance and Data Management. When COVID-19 reshaped my path, I pivoted to a Master of Education in Higher Education and Student Affairs, serving as an Assistant Hall Director in Campus Living for two years.</p>
+            <p>I spent a summer at Cornell University as Residence Director for the Pre-Collegiate Scholar Program, and today I serve as a Hall Coordinator at the University of Iowa.</p>
+            <p>Getting here wasn't easy — I applied to over <strong>60 positions</strong> and completed more than <strong>50 interviews</strong>. That experience inspired this toolkit. As an international candidate, I faced unique obstacles around visa sponsorship that had nothing to do with my qualifications. I built this resource so others wouldn't have to navigate alone.</p>
+          </div>
+          <div class="btn-center reveal">
+            <a href="#toolkit" class="btn btn-primary">See the Toolkit</a>
+          </div>
         </div>
-        <nav>
-          <ul>
-            <li><a href="#intro">Start Here</a></li>
-            <li><a href="#tool">Toolkit</a></li>
-            <li><a href="#h1b">H-1B Tips</a></li>
-            <li><a href="#contact">Contact Me</a></li>
-          </ul>
-        </nav>
-      </header>
+      </div>
+    </div>
+  </section>
 
-      <!-- Main -->
-      <div id="main">
+  <!-- ========================
+       TOOLKIT
+  ========================= -->
+  <section id="toolkit" class="section section--alt">
+    <div class="container">
+      <span class="eyebrow reveal">Free Resource</span>
+      <h2 class="reveal">Job Search Toolkit</h2>
+      <div class="divider reveal"></div>
 
-        <!-- Intro -->
-        <article id="intro">
-          <h2 class="major">About Me</h2>
-          <span class="image main">
-            <img src="images/karlie-portrait.png" alt="Karlie Tran" />
-          </span>
-
-          <p>
-            Hi, my name is Karlie Tran, and I am originally from Hanoi, Vietnam. I came to the United States when I was 16 years old and have been navigating life as an international student and professional ever since. After 7.5 years as an international student, I transitioned to working under an H-1B visa starting in 2022/2023.
-          </p>
-
-          <div class="inline-content">
-            <p>
-              I began my academic journey at the University at Buffalo, where I pursued a Bachelor of Science in Business Administration with a concentration in Finance and Data Management. However, the onset of the COVID-19 pandemic in 2020 led me to pivot to a new path—pursuing a Master of Education in Higher Education and Student Affairs. I was an Assistant Hall Director in Campus Living at the University at Buffalo for two years.
-            </p>
-            <div class="cornell-image">
-              <img src="images/karlie-cornell.png" alt="Karlie at Cornell" />
-              <small>
-                My summer 2021 internship at Cornell University as the Residence Director for the Pre-Collegiate Scholar Program (formerly PSP).
-              </small>
-            </div>
-          </div>
-
-          <p>
-            Currently, I serve as a Hall Coordinator at the University of Iowa. This position, however, was not an easy milestone to achieve. During my first professional job search, I applied to over 60 positions and participated in more than 50 interviews. This challenging process inspired me to create a Job Search Toolkit—a resource to help me track and organize my applications and interviews efficiently.
-          </p>
-
-          <!-- Iowa Image + Visa Paragraph -->
-          <div class="inline-content visa-section">
-            <div class="iowa-image">
-              <img
-                src="images/toolkit-presentation.png"
-                alt="Karlie Presenting the toolkit"
-              />
-              <small>This toolkit has been showcased at UMR-ACUHO and ACUHO-I Conferences.</small>
-            </div>
-            <p>
-              As an international candidate, I faced unique obstacles, particularly around visa sponsorship. Often, rejections were not due to my qualifications but the complexities of visa requirements. I understand firsthand the challenges of conducting a nationwide job search, especially when navigating non-negotiable needs like sponsorship.
-            </p>
-          </div>
-          <!-- End Iowa Image + Visa Paragraph -->
-
-          <p>
-            This experience motivated me to share the Job Search Toolkit <strong>for free</strong>, hoping it can support others in their job-seeking journey. Whether you’re a student applying for colleges, a first-time job seeker, an experienced professional, or someone who needs to cast a wider net due to specific requirements like visa sponsorship, this tool is designed to help you stay organized and focused in achieving your goals.
-          </p>
-
-          <div class="button-container">
-            <button
-              class="default-button"
-              onclick="window.location.hash='tool';"
-            >
-              Access the Toolkit
-            </button>
-          </div>
-        </article>
-
-        <!-- Toolkit -->
-        <article id="tool">
-          <h2 class="major">Job Search Toolkit</h2>
-          <span class="image main">
-            <img src="images/toolkit-gdrive.jpg" alt="Job Search Organizer Tool" />
-            <div class="caption-toolkit">
-              <small>Here is a screenshot of the toolkit once you access it.</small>
-            </div>
-          </span>
-
-          <p>
-            The Job Search Organizer is your ultimate solution for staying on top of your job applications. Designed to help you track opportunities, application statuses, follow-ups, and deadlines with ease.
-          </p>
-          <p>
-            This toolkit includes four key documents:
-          </p>
-          <ul>
-            <li><strong>Master Resume Template</strong> &ndash; A foundational resume format that allows you to keep track of all your work experience, skills, and achievements in one place. This serves as a comprehensive reference to easily tailor your resume for each job application.</li>
-            <li><strong>Master Cover Letter Template</strong> &ndash; A structured guide that helps you prepare paragraphs based on your strengths, making it easier to customize your cover letter for each job description while aligning it with your skills and experiences.</li>
-            <li><strong>Common Interview Questions</strong> &ndash; Focused on Higher Education &amp; Student Affairs but useful for any industry.</li>
-            <li><strong>Job Search Organizer</strong> &ndash; A comprehensive tracker for job applications, interviews, and follow-ups.</li>
-          </ul>
-
-          <!-- Embedded YouTube Video -->
-          <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ihMxsjZnlVk?si=BmrXdB_Lru5o8yEn" 
-              title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-            </iframe>
-          </div>
-
-          <p></p>
-
-          <h3>Inside the Job Search Organizer</h3>
-          <p>
-            The Job Search Organizer is the heart of this toolkit, designed to help you track and manage your applications efficiently. It includes:
-          </p>
-          <ul>
-            <li><strong>Research Tab</strong> &ndash; Keep track of all job postings, including company details, application deadlines, and job descriptions.</li>
-            <li><strong>Dashboard Tab</strong> &ndash; An automatically populated summary of your job search progress, pulling key details from the Research Tab.</li>
-            <li><strong>Job Search Criteria Tab</strong> &ndash; Define your non-negotiables, such as salary expectations, location, work-life balance, and organizational values, before starting your job search.</li>
-            <li><strong>Interview Answer Organizer</strong> &ndash; A dedicated space to structure and store responses to common interview questions using the STAR method (Situation, Task, Action, Result).</li>
-            <li><strong>Follow-Up Questions Tab</strong> &ndash; Pre-sorted questions to ask during an interview to gain deeper insights into the role, company culture, and expectations.</li>
-            <li><strong>Email Response Templates</strong> &ndash; Ready-to-use email templates for common job search communications, such as application follow-ups and thank-you notes.</li>
-            <li><strong>Negotiation &amp; Interview Reference List</strong> &ndash; A place to document key points for salary negotiation and keep track of critical interview questions.</li>
-          </ul>
-
-          <p>
-            While this toolkit is pre-filled with industry-specific information tailored to Higher Education and Student Affairs, it is fully customizable to fit any industry and job seeker. You can modify it to match your personal preferences, career goals, and specific job search needs. Students can also use this for their college and graduate school applications.
-          </p>
-          <h3>How to Use This Toolkit</h3>
-          <p>
-            Once you gain access to the toolkit, I highly recommend downloading and personalizing it to fit your needs. You can trim down sections that may not apply to your search or expand areas that require more detail. The more you tailor it to your personal job search strategy, the more effective it will be in helping you stay organized and prepared.
-          </p>
-
-          <div class="button-container">
-            <button id="show-form-button" class="default-button">Fill Out This Form</button>
-          </div>
-
-          <!-- Hidden Google Form -->
-          <div id="google-form-container" style="display: none; margin-top: 20px;">
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSfl6UpiR2VIT6hvgLazsSn-32gHF9GdsU1P9X2RfiVOsnMrzg/viewform?embedded=true"
-              width="100%"
-              height="800"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-            >
-              Loading…
-            </iframe>
-          </div>
-        </article>
-
-
-        <!-- H1B -->
-        <article id="h1b">
-          <h2 class="major">Cap-Exempt H-1B</h2>
-
-          <h3>What is a Cap-Exempt Employer?</h3>
-          <p>
-            A <strong>cap-exempt employer</strong> is an organization not subject to the annual H-1B visa cap or lottery, allowing them to sponsor H-1B workers year-round without restriction. These employers typically fall into one of the following categories:
-          </p>
-          <ul>
-            <li><strong>Higher Education Institutions</strong> &ndash; Universities and colleges, such as Harvard University or the University of California system.</li>
-            <li><strong>Nonprofit Organizations Affiliated with Higher Education</strong> &ndash; Research centers or academic medical centers directly linked to universities.</li>
-            <li><strong>Nonprofit Research Organizations</strong> &ndash; Entities engaged in scientific or medical research, like the Mayo Clinic or Scripps Research Institute.</li>
-            <li><strong>Government Research Organizations</strong> &ndash; Institutions conducting public research, such as the National Institutes of Health (NIH) or NASA research centers.</li>
-          </ul>
-          <p>
-            However, many of these institutions reserve H-1B visa sponsorship for <strong>professors, doctors, faculty, and high-level administrators</strong>. Employers tend to be more selective about which staff positions they are willing to sponsor, making it crucial for international candidates to conduct thorough research.
-          </p>
-
-          <h3>How to Research H-1B Sponsorship Opportunities</h3>
-          <p>
-            As an international candidate, there are a few steps you can take to understand an institution's stance on H-1B sponsorship:
-          </p>
-          <ul>
-            <li><strong>Read the institution's policy on H-1B visa sponsorship</strong> - Some universities and research institutions publicly outline their sponsorship policies.</li>
-            <li><strong>Search <a href="https://h1bdata.info/" target="_blank">H1BData.info</a></strong> - This website provides historical H-1B sponsorship data by employer and job category.</li>
-          </ul>
-          <p>
-            It's important to remember:
-          </p>
-          <ul>
-            <li><strong>Just because an institution has never sponsored a position you're applying for doesn't mean they won't sponsor now.</strong></li>
-            <li><strong>Just because an institution has previously sponsored a similar position doesn't mean they will continue to do so.</strong></li>
-          </ul>
-          <p>
-            The best way to get a definitive answer is to <strong>apply and ask the hiring manager directly</strong>.
-          </p>
-
-          <h3>When Should You Ask About H-1B Sponsorship?</h3>
-          <p>
-            Different job seekers use different strategies when asking about visa sponsorship:
-          </p>
-          <ul>
-            <li><strong>Before applying or in the first interview</strong> - Saves time if sponsorship is non-negotiable.</li>
-            <li><strong>Before the final interview</strong> - Allows you to gauge interest and suitability before bringing up sponsorship.</li>
-            <li><strong>After receiving an offer</strong> - Some candidates wait until they secure an offer before discussing visa needs.</li>
-          </ul>
-          <p>
-            Personally, I have tried all three approaches, and there is no clear-cut best strategy. I have encountered institutions that openly confirmed sponsorship even before I applied, and others that extended an offer but later rescinded it due to sponsorship restrictions.
-          </p>
-
-          <h3>Choosing the Best Strategy for You</h3>
-          <p>
-            Ultimately, the right timing depends on your <strong>mental and physical capacity</strong>:
-          </p>
-          <ul>
-            <li>If you have the energy to go through multiple interview rounds and risk disappointment later, you may choose to wait.</li>
-            <li>If you prefer to avoid unnecessary hurdles and potential setbacks, ask early.</li>
-          </ul>
-          <p>
-            There is no right or wrong approach—<strong>do what works best for you</strong>.
-          </p>
-        </article>
-
-        <!-- Contact -->
-        <article id="contact">
-          <h2 class="major">Contact</h2>
-          <p>If you have any questions or inquiries, use the form below:</p>
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSdlMqTMBIU7NzNrW3up2PycKpN5KKyOiV1XAEk05KP1TUUB0w/viewform?embedded=true"
-            width="100%"
-            height="800"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-          >
-            Loading…
-          </iframe>
-          <div style="text-align: center; margin-top: 2rem;">
-            <div class="button-container">
-              <button
-                class="default-button"
-                onclick="window.open('https://www.linkedin.com/in/karlietran/', '_blank')"
-              >
-                Connect with me on LinkedIn
-              </button>
-            </div>
-          </div>
-        </article>
+      <div class="reveal">
+        <img src="images/toolkit-gdrive.jpg" alt="Screenshot of the Job Search Organizer spreadsheet in Google Drive" class="toolkit-screenshot" loading="lazy" />
+        <p class="about-img-caption" style="margin-bottom:2rem;">A look inside the toolkit — fully customizable for any industry.</p>
       </div>
 
-      <!-- TESTIMONIALS (outside #main) -->
-      <section id="testimonials">
-        <h2 class="major">What People Are Saying</h2>
-        <div class="testimonial-gallery">
-          <button class="nav prev" onclick="prevTestimonial()">&#10094;</button>
-          <div class="testimonial-container">
-            <div class="testimonial active">
-              <p>
-                "My supervisor shared a job search spreadsheet with me and then she let me know you made that spreadsheet. I have used it and it has been super helpful. I shared it with my international friends and they all really appreciate it. Thank you so much for supporting other international students!"
-                <br />&ndash; <strong>P. C. B.</strong>
-              </p>
-            </div>
-            <div class="testimonial">
-              <p>
-                "Karlie, thank you so much for yesterdays chat. I've been processing the resources you shared with me and it means the world to have someone so willing to help and provide support like you did. I wanted to just share how thankful I am to have crossed paths with you! Thank you."
-                <br />&ndash; <strong>I. Y.</strong>
-              </p>
-            </div>
-            <div class="testimonial">
-              <p>
-                "Karlie, I was thinking about this and figured I would also share this with you! Thank you so much for your willingness to share your job search resources, you helped me prepare for my job search in so many ways that I did not expect. You really made this process so much more approachable, helped me get started (which was the hardest part) and absolutely changed the way I went about my job search. Thank you so much. I'm at a place now where I'm choosing between offers and will have a job secured by early next week! I credit the ways I went about my search a lot to you, thank you so much."
-                <br />&ndash; <strong>I. Y.</strong>
-              </p>
-            </div>
-          </div>
-          <button class="nav next" onclick="nextTestimonial()">&#10095;</button>
+      <p class="reveal">The Job Search Organizer is your command center for every stage of your search — from researching roles to negotiating offers. Pre-filled for Higher Education & Student Affairs, but <strong>fully adaptable to any industry</strong>.</p>
+
+      <div class="toolkit-items">
+        <div class="toolkit-item reveal">
+          <div class="toolkit-item-title">Master Resume Template</div>
+          <p>A single source of truth for all your experience. Tailor it for each application without starting from scratch.</p>
         </div>
-      </section>
+        <div class="toolkit-item reveal">
+          <div class="toolkit-item-title">Master Cover Letter Template</div>
+          <p>Pre-written paragraphs based on your strengths — customize per job description in minutes.</p>
+        </div>
+        <div class="toolkit-item reveal">
+          <div class="toolkit-item-title">Common Interview Questions</div>
+          <p>Organized with the STAR method. Use the Interview Answer Organizer to prep structured, confident responses.</p>
+        </div>
+        <div class="toolkit-item reveal">
+          <div class="toolkit-item-title">Job Search Organizer</div>
+          <p>Track applications, deadlines, follow-ups, and offer negotiations — all in one place with an auto-populating dashboard.</p>
+        </div>
+        <div class="toolkit-item reveal">
+          <div class="toolkit-item-title">Follow-Up Question Bank</div>
+          <p>Pre-sorted questions to ask during interviews. Show up as a thoughtful, prepared candidate every time.</p>
+        </div>
+        <div class="toolkit-item reveal">
+          <div class="toolkit-item-title">Email Response Templates</div>
+          <p>Ready-to-send templates for application follow-ups, thank-you notes, and negotiation emails.</p>
+        </div>
+      </div>
 
-      <!-- Footer -->
-      <footer id="footer">
-        <p class="copyright">
-          &copy; Karlie Tran. Design: <a href="https://html5up.net">HTML5 UP</a>.
-        </p>
-      </footer>
+      <div class="video-wrap reveal" aria-label="Toolkit walkthrough video">
+        <iframe
+          src="https://www.youtube.com/embed/ihMxsjZnlVk?si=BmrXdB_Lru5o8yEn"
+          title="Job Search Toolkit walkthrough by Karlie Tran"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <div class="tip-box reveal">
+        <p>📌 <strong>Showcased at UMR-ACUHO and ACUHO-I Conferences.</strong> Once you have access, download and personalize — trim what doesn't apply, expand what matters most to your search.</p>
+      </div>
+
+      <div class="form-reveal reveal" id="toolkit-form-area">
+        <div class="btn-center">
+          <button class="btn btn-primary" id="show-form-btn" aria-expanded="false" aria-controls="toolkit-iframe">
+            Request Free Access →
+          </button>
+        </div>
+        <iframe
+          id="toolkit-iframe"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfl6UpiR2VIT6hvgLazsSn-32gHF9GdsU1P9X2RfiVOsnMrzg/viewform?embedded=true"
+          title="Request access to Job Search Toolkit"
+          aria-label="Toolkit access form">
+        </iframe>
+      </div>
     </div>
+  </section>
 
-    <!-- BG -->
-    <div id="bg"></div>
+  <!-- ========================
+       TESTIMONIALS
+  ========================= -->
+  <section id="testimonials" aria-label="Testimonials">
+    <div class="testimonials-header reveal">
+      <span class="eyebrow">What People Are Saying</span>
+      <h2>Real stories, real results.</h2>
+    </div>
+    <div class="testimonial-track">
+      <div class="testimonial-card active" role="group" aria-label="Testimonial 1 of 3">
+        <p class="testimonial-quote">My supervisor shared a job search spreadsheet with me and then she let me know you made that spreadsheet. I have used it and it has been super helpful. I shared it with my international friends and they all really appreciate it. Thank you so much for supporting other international students!</p>
+        <p class="testimonial-author">P. C. B.</p>
+      </div>
+      <div class="testimonial-card" role="group" aria-label="Testimonial 2 of 3">
+        <p class="testimonial-quote">Karlie, thank you so much for yesterday's chat. I've been processing the resources you shared with me and it means the world to have someone so willing to help and provide support like you did. Thank you.</p>
+        <p class="testimonial-author">I. Y.</p>
+      </div>
+      <div class="testimonial-card" role="group" aria-label="Testimonial 3 of 3">
+        <p class="testimonial-quote">You really made this process so much more approachable, helped me get started and absolutely changed the way I went about my job search. I'm at a place now where I'm choosing between offers and will have a job secured by early next week. I credit the ways I went about my search a lot to you.</p>
+        <p class="testimonial-author">I. Y.</p>
+      </div>
+      <div class="testimonial-nav">
+        <button class="t-btn" id="t-prev" aria-label="Previous testimonial">&#8592;</button>
+        <div class="t-dots" role="tablist" aria-label="Testimonial navigation">
+          <div class="t-dot active" role="tab" aria-selected="true" aria-label="Testimonial 1" tabindex="0"></div>
+          <div class="t-dot" role="tab" aria-selected="false" aria-label="Testimonial 2" tabindex="0"></div>
+          <div class="t-dot" role="tab" aria-selected="false" aria-label="Testimonial 3" tabindex="0"></div>
+        </div>
+        <button class="t-btn" id="t-next" aria-label="Next testimonial">&#8594;</button>
+      </div>
+    </div>
+  </section>
 
-    <!-- Scripts -->
-    <!-- Include jQuery (Dimension uses it) -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <!-- Main JS for page transitions/testimonials -->
-    <script src="assets/js/main.js"></script>
+  <!-- ========================
+       H1B TIPS
+  ========================= -->
+  <section id="h1b" class="section">
+    <div class="container">
+      <span class="eyebrow reveal">For International Candidates</span>
+      <h2 class="reveal">Cap-Exempt H-1B Tips</h2>
+      <div class="divider reveal"></div>
+      <p class="reveal">A <strong>cap-exempt employer</strong> is not subject to the annual H-1B lottery — they can sponsor H-1B workers year-round. These organizations typically include:</p>
 
-    <!-- Show/Hide Google Form Script -->
-    <script>
-      // Toggle the embedded Google form on button click
-      document.getElementById('show-form-button').addEventListener('click', function () {
-        const formContainer = document.getElementById('google-form-container');
-        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
-          formContainer.style.display = 'block';
-        } else {
-          formContainer.style.display = 'none';
+      <div class="h1b-cards">
+        <div class="h1b-card reveal">
+          <h4>Universities & Colleges</h4>
+          <p>Higher education institutions like Harvard, state university systems, and community colleges.</p>
+        </div>
+        <div class="h1b-card reveal">
+          <h4>Nonprofit Research Orgs</h4>
+          <p>Entities engaged in scientific or medical research — e.g., Mayo Clinic, Scripps Research Institute.</p>
+        </div>
+        <div class="h1b-card reveal">
+          <h4>Nonprofit Affiliates</h4>
+          <p>Research centers or academic medical centers directly linked to higher education institutions.</p>
+        </div>
+        <div class="h1b-card reveal">
+          <h4>Government Research</h4>
+          <p>Public research institutions like the NIH or NASA research centers.</p>
+        </div>
+      </div>
+
+      <div class="tip-box reveal">
+        <p>⚠️ <strong>Important:</strong> Many of these institutions reserve H-1B sponsorship for professors, doctors, and high-level administrators. Conduct thorough research before applying — and always ask directly.</p>
+      </div>
+
+      <div class="reveal">
+        <h3>How to Research Sponsorship</h3>
+        <ul>
+          <li><strong>Read the institution's official policy</strong> — many universities publicly outline their H-1B sponsorship stance.</li>
+          <li><strong>Search <a href="https://h1bdata.info/" target="_blank" rel="noopener">H1BData.info</a></strong> — historical H-1B data by employer and job title.</li>
+          <li><strong>Remember:</strong> Past behavior doesn't guarantee future decisions — in either direction.</li>
+        </ul>
+
+        <h3 style="margin-top:2rem;">When to Ask About Sponsorship</h3>
+        <ul>
+          <li><strong>Before applying / first interview</strong> — saves time if it's non-negotiable for you.</li>
+          <li><strong>Before the final round</strong> — gauge fit and interest first.</li>
+          <li><strong>After receiving an offer</strong> — maximize leverage, but carry some risk.</li>
+        </ul>
+        <p>I've tried all three approaches. There is no universally right answer — <strong>do what protects your mental and physical energy.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       CONTACT
+  ========================= -->
+  <section id="contact" class="section section--alt">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span class="eyebrow">Get in Touch</span>
+          <h2>Let's connect.</h2>
+          <div class="divider"></div>
+          <p>Have questions about the toolkit, need guidance on your job search, or just want to say hi? Fill out the form and I'll get back to you.</p>
+          <p>You can also find me on LinkedIn — I love connecting with fellow job seekers and higher ed professionals.</p>
+          <a href="https://www.linkedin.com/in/karlietran/" target="_blank" rel="noopener" class="contact-link" aria-label="Connect with Karlie Tran on LinkedIn">Connect on LinkedIn</a>
+        </div>
+        <div class="contact-form reveal">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdlMqTMBIU7NzNrW3up2PycKpN5KKyOiV1XAEk05KP1TUUB0w/viewform?embedded=true"
+            title="Contact Karlie Tran"
+            loading="lazy">
+            Loading form…
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       FOOTER
+  ========================= -->
+  <footer>
+    <p>&copy; 2025 Karlie Tran &mdash; All rights reserved. &nbsp;|&nbsp; Design inspired by <a href="https://html5up.net" rel="noopener">HTML5 UP</a>.</p>
+  </footer>
+
+  <!-- ========================
+       JAVASCRIPT
+  ========================= -->
+  <script>
+    // ── Nav scroll shadow
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // ── Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    // Close on link click
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      });
+    });
+
+    // ── Toolkit form reveal
+    const showFormBtn = document.getElementById('show-form-btn');
+    const toolkitIframe = document.getElementById('toolkit-iframe');
+    showFormBtn.addEventListener('click', () => {
+      const isOpen = toolkitIframe.classList.toggle('open');
+      showFormBtn.setAttribute('aria-expanded', isOpen);
+      showFormBtn.textContent = isOpen ? 'Hide Form ↑' : 'Request Free Access →';
+      if (isOpen) toolkitIframe.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // ── Testimonials
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dots  = document.querySelectorAll('.t-dot');
+    let current = 0;
+
+    function showTestimonial(idx) {
+      cards[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-selected', false);
+      current = (idx + cards.length) % cards.length;
+      cards[current].classList.add('active');
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-selected', true);
+    }
+
+    document.getElementById('t-prev').addEventListener('click', () => showTestimonial(current - 1));
+    document.getElementById('t-next').addEventListener('click', () => showTestimonial(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => showTestimonial(i)));
+
+    // Auto-advance testimonials
+    let autoPlay = setInterval(() => showTestimonial(current + 1), 6000);
+    document.querySelector('.testimonial-track').addEventListener('mouseenter', () => clearInterval(autoPlay));
+    document.querySelector('.testimonial-track').addEventListener('mouseleave', () => {
+      autoPlay = setInterval(() => showTestimonial(current + 1), 6000);
+    });
+
+    // ── Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // Stagger siblings
+          const siblings = [...entry.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
+          const delay = siblings.indexOf(entry.target) * 80;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          observer.unobserve(entry.target);
         }
       });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-      // Testimonial cycling
-      const testimonials = document.querySelectorAll('.testimonial');
-      let currentTestimonial = 0;
+    revealEls.forEach(el => observer.observe(el));
+  </script>
 
-      function showTestimonial(index) {
-        testimonials.forEach((t, i) => {
-          t.classList.remove('active');
-          if (i === index) t.classList.add('active');
-        });
-      }
-
-      function nextTestimonial() {
-        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-        showTestimonial(currentTestimonial);
-      }
-
-      function prevTestimonial() {
-        currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-        showTestimonial(currentTestimonial);
-      }
-    </script>
-
-    <!-- MutationObserver approach: show/hide testimonials if body.has/is-article-visible -->
-    <script>
-      const testimonialSection = document.getElementById('testimonials');
-
-      function updateTestimonials() {
-        // If body has is-article-visible => hide testimonials
-        if (document.body.classList.contains('is-article-visible')) {
-          testimonialSection.style.display = 'none';
-          testimonialSection.classList.remove('active');
-        } else {
-          // Otherwise => show them
-          testimonialSection.style.display = 'block';
-          testimonialSection.classList.add('active');
-        }
-      }
-
-      // Set up a MutationObserver to watch for changes to the body's class
-      const observer = new MutationObserver(updateTestimonials);
-      observer.observe(document.body, {
-        attributes: true,
-        attributeFilter: ['class']
-      });
-
-      // Run once on page load
-      updateTestimonials();
-    </script>
-
-  </body>
+</body>
 </html>
