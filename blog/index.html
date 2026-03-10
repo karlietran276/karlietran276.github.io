@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog | Job Search Toolkit by Karlie Tran</title>
+  <meta name="description" content="Career advice, H-1B tips, resume guidance, and job search strategy from Karlie Tran — Hall Coordinator at the University of Iowa." />
+  <meta name="author" content="Karlie Tran" />
+  <link rel="canonical" href="https://jobsearch-toolkit.com/blog/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jobsearch-toolkit.com/blog/" />
+  <meta property="og:title" content="Blog | Job Search Toolkit by Karlie Tran" />
+  <meta property="og:description" content="Career advice, H-1B tips, resume guidance, and job search strategy from Karlie Tran." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #faf7f2;
+      --sand: #ede8df;
+      --taupe: #c9bfb0;
+      --sienna: #b5764a;
+      --sienna-dk: #8f5735;
+      --bark: #3d2b1f;
+      --ink: #2a1f17;
+      --mist: #f2ede6;
+      --warm-white: #fffdf9;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --transition: 0.3s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--ink); font-family: var(--font-body); font-weight: 300; line-height: 1.7; }
+    a { color: var(--sienna); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { font-weight: 500; color: var(--bark); }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0;
+      background: rgba(250,247,242,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--sand);
+      z-index: 10;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1100px; margin: 0 auto; padding: 0 2rem; height: 64px;
+    }
+    .nav-logo { font-family: var(--font-display); font-style: italic; font-size: 1.3rem; color: var(--bark); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); transition: color var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--sienna); text-decoration: none; }
+    .nav-cta { background: var(--sienna); color: var(--warm-white) !important; padding: 0.5rem 1.2rem; border-radius: 2px; }
+    .nav-cta:hover { background: var(--sienna-dk) !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--ink); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--sand); padding: 1.5rem 2rem; gap: 1.25rem; }
+      .nav-toggle { display: flex; }
+      .nav-cta-li { display: none; }
+    }
+
+    /* Page hero */
+    .page-hero {
+      background: var(--bark);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .page-hero .eyebrow {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--taupe);
+      display: block; margin-bottom: 1rem;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 400; color: var(--cream); line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--sienna); }
+    .page-hero p { color: var(--taupe); font-size: 1.05rem; max-width: 520px; margin: 0 auto; }
+
+    /* Filter tags */
+    .filter-bar {
+      display: flex; gap: 0.75rem; flex-wrap: wrap;
+      justify-content: center;
+      padding: 2.5rem 2rem 0;
+      max-width: 900px; margin: 0 auto;
+    }
+    .filter-tag {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 0.45rem 1rem;
+      border: 1px solid var(--sand); border-radius: 2px;
+      color: var(--ink); cursor: pointer; background: var(--warm-white);
+      transition: all var(--transition);
+    }
+    .filter-tag:hover, .filter-tag.active {
+      background: var(--sienna); color: var(--warm-white);
+      border-color: var(--sienna);
+    }
+
+    /* Blog grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1100px; margin: 3rem auto 6rem;
+      padding: 0 2rem;
+    }
+
+    /* Post card */
+    .post-card {
+      background: var(--warm-white);
+      border: 1px solid var(--sand);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(61,43,31,0.1);
+    }
+    .post-card-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+    .post-tag {
+      font-size: 0.63rem; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--sienna);
+      margin-bottom: 0.75rem; display: block;
+    }
+    .post-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem; font-weight: 400;
+      color: var(--bark); line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    .post-card p {
+      font-size: 0.88rem; color: #6b5a4e;
+      line-height: 1.65; flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .post-card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--sand);
+      margin-top: auto;
+    }
+    .post-meta { font-size: 0.7rem; color: var(--taupe); letter-spacing: 0.05em; }
+    .read-link {
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--sienna);
+      transition: gap var(--transition);
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .read-link::after { content: '→'; transition: transform var(--transition); }
+    .read-link:hover::after { transform: translateX(4px); }
+    .read-link:hover { text-decoration: none; }
+
+    /* Coming soon cards */
+    .post-card--soon {
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .coming-soon-badge {
+      font-size: 0.63rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--taupe);
+      border: 1px solid var(--sand);
+      padding: 0.25rem 0.6rem; border-radius: 2px;
+    }
+
+    /* Footer */
+    footer { background: var(--ink); color: var(--taupe); text-align: center; padding: 2.5rem; font-size: 0.75rem; letter-spacing: 0.05em; }
+    footer a { color: var(--taupe); }
+    footer a:hover { color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="https://jobsearch-toolkit.com" class="nav-logo">Karlie Tran</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="https://jobsearch-toolkit.com/#about">About</a></li>
+        <li><a href="https://jobsearch-toolkit.com/#toolkit">Toolkit</a></li>
+        <li><a href="https://jobsearch-toolkit.com/#h1b">H-1B Tips</a></li>
+        <li><a href="https://jobsearch-toolkit.com/blog/" class="active">Blog</a></li>
+        <li><a href="https://jobsearch-toolkit.com/#contact">Contact</a></li>
+        <li class="nav-cta-li"><a href="https://jobsearch-toolkit.com/#toolkit" class="nav-cta">Get Free Toolkit</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <span class="eyebrow">Resources & Advice</span>
+    <h1>The <em>Blog</em></h1>
+    <p>Job search strategy, H-1B guidance, resume tips, and honest stories from someone who's been through it.</p>
+  </header>
+
+  <!-- Filter tags -->
+  <div class="filter-bar">
+    <button class="filter-tag active" data-filter="all">All Posts</button>
+    <button class="filter-tag" data-filter="strategy">Job Search Strategy</button>
+    <button class="filter-tag" data-filter="h1b">H-1B & Visa</button>
+    <button class="filter-tag" data-filter="resume">Resume & Interviews</button>
+    <button class="filter-tag" data-filter="highered">Higher Ed Careers</button>
+    <button class="filter-tag" data-filter="story">Personal Story</button>
+  </div>
+
+  <!-- Blog grid -->
+  <main class="blog-grid" id="blog-grid">
+
+    <article class="post-card" data-tags="strategy">
+      <div class="post-card-body">
+        <span class="post-tag">Job Search Strategy</span>
+        <h2>How I Tracked 60+ Job Applications Without Losing My Mind</h2>
+        <p>The system I built to manage a high-volume job search — and why treating it like a project changed everything.</p>
+        <div class="post-card-footer">
+          <span class="post-meta">6 min read</span>
+          <a href="https://jobsearch-toolkit.com/blog/how-i-tracked-60-applications.html" class="read-link">Read post</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card post-card--soon" data-tags="h1b">
+      <div class="post-card-body">
+        <span class="post-tag">H-1B & Visa</span>
+        <h2>H-1B Cap-Exempt Employers: What No One Tells You</h2>
+        <p>Cap-exempt employers can sponsor H-1B visas year-round — no lottery required. Here's what international job seekers actually need to know.</p>
+        <div class="post-card-footer">
+          <span class="post-meta">7 min read</span>
+          <span class="coming-soon-badge">Coming Soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card post-card--soon" data-tags="resume">
+      <div class="post-card-body">
+        <span class="post-tag">Resume & Cover Letters</span>
+        <h2>How to Write a Cover Letter When You're Applying to 50+ Jobs</h2>
+        <p>A modular system that lets you write compelling, customized cover letters in under 20 minutes — even at high volume.</p>
+        <div class="post-card-footer">
+          <span class="post-meta">6 min read</span>
+          <span class="coming-soon-badge">Coming Soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card post-card--soon" data-tags="strategy story">
+      <div class="post-card-body">
+        <span class="post-tag">Mindset & Strategy</span>
+        <h2>The Job Search Mindset No One Talks About</h2>
+        <p>How to stay mentally resilient through rejection, uncertainty, and a job search that takes longer than you planned.</p>
+        <div class="post-card-footer">
+          <span class="post-meta">6 min read</span>
+          <span class="coming-soon-badge">Coming Soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card post-card--soon" data-tags="h1b story">
+      <div class="post-card-body">
+        <span class="post-tag">H-1B & Personal Story</span>
+        <h2>From OPT to H-1B: What the Transition Actually Looks Like</h2>
+        <p>A personal, honest account of navigating the OPT to H-1B transition — and what I wish someone had told me earlier.</p>
+        <div class="post-card-footer">
+          <span class="post-meta">7 min read</span>
+          <span class="coming-soon-badge">Coming Soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card post-card--soon" data-tags="resume highered">
+      <div class="post-card-body">
+        <span class="post-tag">Resume · Higher Ed</span>
+        <h2>5 Resume Mistakes That Are Quietly Killing Your Higher Ed Applications</h2>
+        <p>Higher education hiring has specific resume conventions. Here are the 5 mistakes most applicants make — and how to fix them.</p>
+        <div class="post-card-footer">
+          <span class="post-meta">6 min read</span>
+          <span class="coming-soon-badge">Coming Soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card post-card--soon" data-tags="resume story">
+      <div class="post-card-body">
+        <span class="post-tag">Interviews · Personal Story</span>
+        <h2>What I Learned From 50+ Job Interviews</h2>
+        <p>Hard-won lessons on preparation, authenticity, recovery, and what it actually takes to stay sharp across a long search.</p>
+        <div class="post-card-footer">
+          <span class="post-meta">7 min read</span>
+          <span class="coming-soon-badge">Coming Soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card post-card--soon" data-tags="highered story">
+      <div class="post-card-body">
+        <span class="post-tag">Higher Ed Careers · Story</span>
+        <h2>How to Break Into Student Affairs When Your Background Looks Different</h2>
+        <p>I started in finance. Here's how I pivoted into higher education — and what I learned about entering a field where you're not the traditional candidate.</p>
+        <div class="post-card-footer">
+          <span class="post-meta">6 min read</span>
+          <span class="coming-soon-badge">Coming Soon</span>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Karlie Tran &nbsp;·&nbsp; <a href="https://jobsearch-toolkit.com">jobsearch-toolkit.com</a></p>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Filter tags
+    const filterBtns = document.querySelectorAll('.filter-tag');
+    const cards = document.querySelectorAll('.post-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          const tags = card.dataset.tags || '';
+          card.style.display = (filter === 'all' || tags.includes(filter)) ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
