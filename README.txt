@@ -1,1 +1,1 @@
-Jobsearch toolkit by Karlie Tran
+Jobsearch-toolkit by Karlie Tran
